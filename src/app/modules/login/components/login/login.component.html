@@ -1,0 +1,16 @@
+<div class="container">
+    <mat-card class="block">
+        <form class="login-form" [formGroup]="formGroup" (ngSubmit)="send()">
+            <h2>Skipper CMS</h2>
+            <mat-form-field appearance="fill">
+                <mat-label>Логин</mat-label>
+                <input matInput formControlName="login" />
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Пароль</mat-label>
+                <input matInput formControlName="password" type="password" />
+            </mat-form-field>
+            <button [disabled]="!formGroup.valid" mat-raised-button color="primary">Войти</button>
+        </form>
+    </mat-card>
+</div>
