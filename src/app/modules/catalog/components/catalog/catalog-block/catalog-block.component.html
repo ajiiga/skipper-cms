@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="blocks">
+        <div
+            class="block"
+            [ngClass]="{ active: activeCatalog === item.id }"
+            (click)="setActive(item.id)"
+            *ngFor="let item of (catalogService.catalogsSubject[level] | async)?.catalogs"
+        >
+            <div class="title">{{ item.name }}</div>
+            <div class="icons">
+                <mat-icon class="icon" (click)="openModal($event, item.name, true, item.id)">edit</mat-icon>
+                <mat-icon class="icon" (click)="delete($event, item.id)">delete</mat-icon>
+            </div>
+        </div>
+    </div>
+    <mat-icon class="add-icon" *ngIf="!!parentId || level === 0" (click)="openModal($event)">add_circle</mat-icon>
+</div>

@@ -1,0 +1,47 @@
+:host {
+    width: 100%;
+    border-right: 1px solid black;
+}
+
+:host:last-child {
+    border-right: 0;
+}
+
+.block {
+    padding: 10px;
+    background: white;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.block.active {
+    border: 1px solid black;
+}
+
+.container {
+    padding: 20px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #e8e8e8;
+}
+
+.add-icon {
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.icons {
+    display: flex;
+    .icon {
+        margin-left: 10px;
+        width: 15px;
+        height: 15px;
+        font-size: 15px;
+        padding: 5px;
+    }
+}

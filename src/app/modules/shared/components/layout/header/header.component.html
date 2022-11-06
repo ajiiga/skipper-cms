@@ -1,0 +1,13 @@
+<header class="header">
+    <div class="header-container">
+        <div class="left-side">
+            <a [routerLink]="navigation.getHomeLink()" class="logo">Skipper</a>
+            <div class="pages">
+                <a [routerLink]="navigation.getCatalogLink()">Каталог</a>
+            </div>
+        </div>
+        <div class="right-side">
+            <button (click)="logout()">Выйти</button>
+        </div>
+    </div>
+</header>

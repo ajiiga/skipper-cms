@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../shared/services/user.service';
+import { User } from '../../../../api/login/dto';
 
 @Component({
     selector: 'app-main-page',
@@ -7,7 +8,10 @@ import { UserService } from '../../../shared/services/user.service';
     styleUrls: ['./main-page.component.scss'],
 })
 export class MainPageComponent implements OnInit {
-    constructor(public userService: UserService) {}
+    user: User;
+    constructor(public userService: UserService) {
+        this.user = userService.user;
+    }
 
     ngOnInit(): void {}
 }

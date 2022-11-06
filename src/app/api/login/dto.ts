@@ -10,28 +10,28 @@ export interface LoginResponse {
 }
 
 export interface User {
-    createdAt: string;
-    deletedAt: {
+    CreatedAt: string;
+    DeletedAt: {
         time: string;
         valid: boolean;
     };
-    email: string;
-    firstName: string;
-    id: number;
-    patronymic: string;
-    phone: string;
-    role: [
+    Email: string;
+    FirstName: string;
+    Dd: number;
+    Patronymic: string;
+    Phone: string;
+    Role: [
         {
-            createdAt: string;
-            deletedAt: {
+            CreatedAt: string;
+            DeletedAt: {
                 time: string;
                 valid: boolean;
             };
-            id: number;
-            name: string;
-            updatedAt: string;
+            Id: number;
+            Name: string;
+            UpdatedAt: string;
         }
     ];
-    secondName: string;
-    updatedAt: string;
+    SecondName: string;
+    UpdatedAt: string;
 }

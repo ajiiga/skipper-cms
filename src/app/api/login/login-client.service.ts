@@ -10,6 +10,6 @@ export class LoginClientService {
     constructor(private readonly httpClient: HttpClient) {}
 
     login(request: LoginRequest): Observable<LoginResponse> {
-        return this.httpClient.post<LoginResponse>('http://85.193.81.148/auth/sign-in', request);
+        return this.httpClient.post<LoginResponse>('/auth/sign-in', request);
     }
 }

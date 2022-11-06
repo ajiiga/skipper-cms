@@ -9,7 +9,7 @@ import { UserService } from '../services/user.service';
 export class AuthGuard implements CanActivate {
     constructor(private readonly userService: UserService, private readonly router: Router) {}
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree {
-        if (!this.userService.user) {
+        if (!this.userService.isAuthorized()) {
             return this.router.parseUrl(NavigationService.loginUrl);
         }
         return true;

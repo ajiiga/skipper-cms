@@ -1,0 +1,38 @@
+.header {
+    box-shadow: 0 2px 8px rgb(0 0 0 / 14%);
+}
+
+.logo {
+    font-size: 24px;
+    letter-spacing: 3px;
+}
+
+.header-container {
+    align-items: center;
+    background: #fff;
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 80%;
+}
+
+.left-side {
+    display: flex;
+    align-items: center;
+
+    .pages {
+        display: flex;
+        margin-left: 50px;
+        margin-top: 3px;
+    }
+}
+
+.right-side {
+    button {
+        border: 0;
+        background: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}

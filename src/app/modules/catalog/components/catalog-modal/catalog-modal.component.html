@@ -1,0 +1,12 @@
+<div>
+    <h2>{{ title }}</h2>
+    <mat-form-field appearance="fill">
+        <mat-label>Название</mat-label>
+        <input matInput type="text" [(ngModel)]="name" />
+    </mat-form-field>
+    <div>
+        <button [disabled]="name === ''" (click)="send()" mat-raised-button color="primary">
+            {{ data.editMode ? 'Изменить' : 'Добавить' }}
+        </button>
+    </div>
+</div>
