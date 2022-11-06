@@ -21,9 +21,9 @@ export class CatalogModalComponent implements OnInit {
     ngOnInit(): void {
         if (this.data.editMode) {
             this.name = this.data.name;
-            this.title = `Редактирование каталога "${this.data.name}"`;
+            this.title = `Редактирование элемента "${this.data.name}"`;
         } else {
-            this.title = `Новый каталог для уровня: ${this.data.level}`;
+            this.title = `Новый элемент для уровня: ${this.data.level}`;
         }
     }
 
