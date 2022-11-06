@@ -29,6 +29,16 @@ a {
     color: black;
 }
 
+.mat-flat-button.mat-accent,
+.mat-raised-button.mat-accent,
+.mat-fab.mat-accent,
+.mat-mini-fab.mat-accent {
+    width: 100%;
+    background: #ffffff;
+    color: black;
+    border: 1px solid black;
+}
+
 .mat-form-field {
     width: 100%;
 }

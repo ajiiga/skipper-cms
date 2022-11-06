@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CatalogService } from '../../../services/catalog.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CatalogModalComponent } from '../../catalog-modal/catalog-modal.component';
+import { QuestionTemplateComponent } from '../../../../shared/components/question-template/question-template.component';
 
 export interface CatalogModalData {
     id: number;
@@ -51,6 +52,13 @@ export class CatalogBlockComponent implements OnInit {
 
     delete(event: Event, id: number) {
         event.stopPropagation();
-        this.catalogService.delete(id, this.parentId, this.level);
+        this.dialog.open(QuestionTemplateComponent, {
+            autoFocus: false,
+            data: {
+                text: 'Вы точно хотите удалить элемент?',
+                action: () => this.catalogService.delete(id, this.parentId, this.level),
+            },
+        });
+        // this.catalogService.delete(id, this.parentId, this.level);
     }
 }
