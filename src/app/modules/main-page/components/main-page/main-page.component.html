@@ -1,6 +1,6 @@
-<mat-card>
+<mat-card class="container">
     <mat-card-title>{{ user.SecondName }} {{ user.FirstName }} {{ user.Patronymic }}</mat-card-title>
     <div>Эл. почта: {{ user.Email }}</div>
     <div>Номер телефона: {{ user.Phone }}</div>
-    <div>Роли: {{ user.Role | json }}</div>
+    <div>Роли: {{ user | roles }}</div>
 </mat-card>
