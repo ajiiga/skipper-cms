@@ -3,7 +3,7 @@
         <div class="left-side">
             <a [routerLink]="navigation.getHomeLink()" class="logo">Skipper</a>
             <div class="pages">
-                <a [routerLink]="navigation.getCatalogLink()">Каталог</a>
+                <a class="page" *ngFor="let item of menuItems" [routerLink]="item.link">{{ item.name }}</a>
             </div>
         </div>
         <div class="right-side">

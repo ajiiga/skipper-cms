@@ -6,6 +6,7 @@ import { MainPageModule } from './modules/main-page/main-page.module';
 import { AuthGuard } from './modules/shared/guards/auth.guard';
 import { LayoutComponent } from './modules/shared/components/layout/layout.component';
 import { CatalogModule } from './modules/catalog/catalog.module';
+import { UsersModule } from './modules/users/users.module';
 
 const routes: Routes = [
     {
@@ -22,6 +23,12 @@ const routes: Routes = [
     {
         path: NavigationService.catalogUrl,
         loadChildren: () => import('./modules/catalog/catalog.module').then(({ CatalogModule }) => CatalogModule),
+        component: LayoutComponent,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: NavigationService.usersUrl,
+        loadChildren: () => import('./modules/users/users.module').then(({ UsersModule }) => UsersModule),
         component: LayoutComponent,
         canActivate: [AuthGuard],
     },

@@ -1,3 +1,5 @@
+import { Roles } from '../../modules/shared/cosntants/roles';
+
 export interface LoginRequest {
     login: string;
     password: string;
@@ -10,11 +12,6 @@ export interface LoginResponse {
 }
 
 export interface User {
-    CreatedAt: string;
-    DeletedAt: {
-        time: string;
-        valid: boolean;
-    };
     Email: string;
     FirstName: string;
     Dd: number;
@@ -22,14 +19,8 @@ export interface User {
     Phone: string;
     Role: [
         {
-            CreatedAt: string;
-            DeletedAt: {
-                time: string;
-                valid: boolean;
-            };
             Id: number;
-            Name: string;
-            UpdatedAt: string;
+            Name: Roles;
         }
     ];
     SecondName: string;

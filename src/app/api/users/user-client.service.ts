@@ -12,4 +12,8 @@ export class UserClientService {
     getUserInfo(): Observable<User> {
         return this.httpClient.get<User>('/users/info');
     }
+
+    getUsers(): Observable<User[]> {
+        return this.httpClient.get<User[]>('/users/');
+    }
 }

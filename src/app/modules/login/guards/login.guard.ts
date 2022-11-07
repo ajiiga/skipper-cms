@@ -7,7 +7,7 @@ import { NavigationService } from '../../shared/services/navigation.service';
 export class LoginGuard implements CanActivate {
     constructor(private readonly userService: UserService, private readonly router: Router) {}
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree {
-        if (this.userService.user) {
+        if (this.userService.isAuthorized()) {
             return this.router.parseUrl(NavigationService.homeUrlWithSlash);
         }
         return true;

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="button-container">
+        <button class="add-button" mat-raised-button color="primary">
+            <mat-icon class="icon">person_add</mat-icon> Добавить
+        </button>
+    </div>
+    <div class="cards">
+        <mat-card class="block" *ngFor="let user of users">
+            <div class="card-header">
+                <h2>{{ user.SecondName }} {{ user.FirstName }} {{ user.Patronymic }}</h2>
+            </div>
+            <h3>Данные сотрудника:</h3>
+            <mat-form-field appearance="outline">
+                <mat-label>Телефон</mat-label>
+                <input class="input" disabled [value]="user.Phone || 'Нет данных'" matInput placeholder="Placeholder" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Эл.почта</mat-label>
+                <input class="input" disabled [value]="user.Email || 'Нет данных'" matInput placeholder="Placeholder" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Роли</mat-label>
+                <input
+                    class="input"
+                    disabled
+                    [value]="(user | roles) || 'Нет данных'"
+                    matInput
+                    placeholder="Placeholder"
+                />
+            </mat-form-field>
+        </mat-card>
+    </div>
+</div>

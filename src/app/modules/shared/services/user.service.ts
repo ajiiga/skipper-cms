@@ -20,7 +20,8 @@ export class UserService {
     constructor(
         private readonly loginClient: LoginClientService,
         private readonly userClient: UserClientService,
-        private readonly router: Router
+        private readonly router: Router,
+        private readonly navigationService: NavigationService
     ) {}
 
     login(request: LoginRequest): Observable<void> {
@@ -36,7 +37,7 @@ export class UserService {
     logout(): void {
         this._user = undefined;
         localStorage.removeItem(this.tokenKey);
-        this.router.navigate([NavigationService.loginUrl]);
+        this.navigationService.goToLogin();
     }
 
     isAuthorized(): boolean {
@@ -61,6 +62,12 @@ export class UserService {
     getToken(): string {
         return localStorage.getItem(this.tokenKey);
     }
+
+    //#region users
+    getUsers(): Observable<User[]> {
+        return this.userClient.getUsers();
+    }
+    //#endregion
 
     private setToken(token: string) {
         localStorage.setItem(this.tokenKey, token);

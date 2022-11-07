@@ -1,14 +1,6 @@
-export const roles = [
-    {
-        Name: 'super_admin',
-    },
-    {
-        Name: 'admin',
-    },
-    {
-        Name: 'support',
-    },
-    {
-        Name: 'editor',
-    },
-];
+export enum Roles {
+    SuperAdmin = 'super_admin',
+    Admin = 'admin',
+    Support = 'support',
+    Editor = 'editor',
+}
