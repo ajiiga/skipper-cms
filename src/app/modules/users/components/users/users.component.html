@@ -1,13 +1,24 @@
 <div class="container">
     <div class="button-container">
-        <button class="add-button" mat-raised-button color="primary">
+        <button class="add-button" mat-raised-button color="primary" (click)="openUserCreateModal()">
             <mat-icon class="icon">person_add</mat-icon> Добавить
         </button>
     </div>
     <div class="cards">
-        <mat-card class="block" *ngFor="let user of users">
+        <mat-card class="block" *ngFor="let user of userService.users$ | async">
             <div class="card-header">
                 <h2>{{ user.SecondName }} {{ user.FirstName }} {{ user.Patronymic }}</h2>
+                <div>
+                    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="openChangeRolesModal(user.ID, user.Role)">
+                            <mat-icon>supervisor_account</mat-icon>
+                            <span>Изменить роль</span>
+                        </button>
+                    </mat-menu>
+                </div>
             </div>
             <h3>Данные сотрудника:</h3>
             <mat-form-field appearance="outline">

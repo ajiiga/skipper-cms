@@ -1,0 +1,16 @@
+<h2>Изменить роль пользователя</h2>
+<form [formGroup]="formGroup" (ngSubmit)="send()">
+    <mat-form-field appearance="outline">
+        <mat-label>Роли</mat-label>
+        <mat-select formControlName="roles_names" multiple>
+            <mat-select-trigger>
+                {{ roles[0] || '' }}
+                <span *ngIf="(formGroup.controls['roles_names'].value.length || 0) > 1">
+                    (+{{ (formGroup.controls['roles_names'].value.length || 0) - 1 }})
+                </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let topping of roles" [value]="topping">{{ topping }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button [disabled]="!formGroup.valid" mat-raised-button color="primary">Сохранить</button>
+</form>

@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
             link: NavigationService.catalogWithSlash,
         },
         {
-            name: 'Пользователи',
+            name: 'Сотрудники',
             link: NavigationService.usersWithSlash,
         },
     ];

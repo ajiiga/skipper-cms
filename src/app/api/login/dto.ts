@@ -1,4 +1,4 @@
-import { Roles } from '../../modules/shared/cosntants/roles';
+import { Role } from '../../modules/shared/cosntants/role';
 
 export interface LoginRequest {
     login: string;
@@ -14,13 +14,13 @@ export interface LoginResponse {
 export interface User {
     Email: string;
     FirstName: string;
-    Dd: number;
+    ID: number;
     Patronymic: string;
     Phone: string;
     Role: [
         {
             Id: number;
-            Name: Roles;
+            Name: Role;
         }
     ];
     SecondName: string;

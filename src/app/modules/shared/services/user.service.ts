@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { LoginRequest, User } from '../../../api/login/dto';
 import { LoginClientService } from '../../../api/login/login-client.service';
-import { map, Observable, of } from 'rxjs';
+import { forkJoin, map, mergeMap, Observable, of, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { NavigationService } from './navigation.service';
 import { UserClientService } from '../../../api/users/user-client.service';
+import { RegisterUser } from '../../../api/users/dto';
+import { Role } from '../cosntants/role';
 
 @Injectable({
     providedIn: 'root',
@@ -63,13 +65,36 @@ export class UserService {
         return localStorage.getItem(this.tokenKey);
     }
 
-    //#region users
-    getUsers(): Observable<User[]> {
-        return this.userClient.getUsers();
-    }
-    //#endregion
-
     private setToken(token: string) {
         localStorage.setItem(this.tokenKey, token);
     }
+
+    //#region users
+    users$: Subject<User[]> = new Subject<User[]>();
+
+    initUsers() {
+        this.getUsers().subscribe((users) => this.users$.next(users));
+    }
+
+    getUsers(): Observable<User[]> {
+        return this.userClient.getUsers();
+    }
+
+    registerUser(form: RegisterUser): Observable<void> {
+        return this.userClient.registerUser(form).pipe(
+            map(() => {
+                this.initUsers();
+            })
+        );
+    }
+
+    changeRole(userId: number, newRoles: Role[], oldRoles: Role[]): Observable<void> {
+        return forkJoin(
+            oldRoles.filter((role) => role !== Role.SuperAdmin).map((role) => this.userClient.deleteRole(userId, role))
+        ).pipe(
+            mergeMap(() => this.userClient.addRoles(userId, newRoles)),
+            map(() => this.initUsers())
+        );
+    }
+    //#endregion
 }

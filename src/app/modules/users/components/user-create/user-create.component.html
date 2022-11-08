@@ -1,0 +1,36 @@
+<form autocomplete="off" class="form" [formGroup]="formGroup" (ngSubmit)="send()">
+    <h2 class="title">Добавление сотрудника</h2>
+    <mat-form-field appearance="outline">
+        <mat-label>Эл. почта</mat-label>
+        <input matInput formControlName="email" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Имя</mat-label>
+        <input matInput formControlName="first_name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Фамилия</mat-label>
+        <input matInput formControlName="second_name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Роли</mat-label>
+        <mat-select formControlName="roles_names" multiple>
+            <mat-select-trigger>
+                {{ roles[0] || '' }}
+                <span *ngIf="(formGroup.controls['roles_names'].value.length || 0) > 1">
+                    (+{{ (formGroup.controls['roles_names'].value.length || 0) - 1 }})
+                </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let topping of roles" [value]="topping">{{ topping }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Пароль</mat-label>
+        <input autocomplete="new-password" matInput type="password" formControlName="password" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Повторите пароль</mat-label>
+        <input matInput type="password" formControlName="confirmPassword" />
+    </mat-form-field>
+    <button [disabled]="!formGroup.valid" mat-raised-button color="primary">Создать</button>
+</form>

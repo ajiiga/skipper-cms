@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NavigationService } from './navigation.service';
-import { Roles } from '../cosntants/roles';
+import { Role } from '../cosntants/role';
 import { UserService } from './user.service';
 
 @Injectable({
@@ -9,10 +9,10 @@ import { UserService } from './user.service';
 export class RoleGuardService {
     constructor(private readonly userService: UserService) {}
 
-    roleGuard: Map<string, Roles[]> = new Map<string, Roles[]>([
-        [NavigationService.homeUrlWithSlash, [Roles.Admin, Roles.Editor, Roles.SuperAdmin, Roles.Support]],
-        [NavigationService.catalogWithSlash, [Roles.Admin, Roles.SuperAdmin, Roles.Editor]],
-        [NavigationService.usersWithSlash, [Roles.Admin, Roles.SuperAdmin, Roles.Support]],
+    roleGuard: Map<string, Role[]> = new Map<string, Role[]>([
+        [NavigationService.homeUrlWithSlash, [Role.Admin, Role.Editor, Role.SuperAdmin, Role.Support]],
+        [NavigationService.catalogWithSlash, [Role.Admin, Role.SuperAdmin, Role.Editor]],
+        [NavigationService.usersWithSlash, [Role.SuperAdmin]],
     ]);
 
     hasOpen(link: string) {

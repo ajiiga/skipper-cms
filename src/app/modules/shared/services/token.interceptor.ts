@@ -20,6 +20,9 @@ export class TokenInterceptor implements HttpInterceptor {
                 (err: any) => {
                     if (err instanceof HttpErrorResponse) {
                         if (err.status !== 401) {
+                            this.snackbarService.error(
+                                err?.error?.error || 'Ошибка запроса, пожалуйста попробуйте позже'
+                            );
                             return;
                         }
                         this.userService.logout();
