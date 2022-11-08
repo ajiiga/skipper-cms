@@ -9,7 +9,7 @@ export class TokenInterceptor implements HttpInterceptor {
     constructor(private readonly userService: UserService, private readonly snackbarService: SnackbarService) {}
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         req = req.clone({
-            url: `http://85.193.81.148/api/v1${req.url}`,
+            url: `https://skipper.gq/api/v1${req.url}`,
             setHeaders: {
                 Authorization: `Bearer ${this.userService.getToken()}`,
             },
