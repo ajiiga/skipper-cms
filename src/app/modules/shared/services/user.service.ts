@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LoginRequest, User } from '../../../api/login/dto';
 import { LoginClientService } from '../../../api/login/login-client.service';
-import { forkJoin, map, mergeMap, Observable, of, Subject } from 'rxjs';
+import { catchError, forkJoin, map, mergeMap, Observable, of, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { NavigationService } from './navigation.service';
 import { UserClientService } from '../../../api/users/user-client.service';
@@ -55,7 +55,8 @@ export class UserService {
             return this.userClient.getUserInfo().pipe(
                 map((user: User) => {
                     this._user = user;
-                })
+                }),
+                catchError(() => of())
             );
         }
         return of();

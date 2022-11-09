@@ -25,8 +25,9 @@ export class TokenInterceptor implements HttpInterceptor {
                             );
                             return;
                         }
+
                         this.userService.logout();
-                        this.snackbarService.error('Сессия истекла, авторизируйтесь заново');
+                        this.snackbarService.error('Ваша сессия истекла. Повторите попытку авторизации.');
                     }
                 }
             )
