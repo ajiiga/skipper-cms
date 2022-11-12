@@ -22,7 +22,9 @@ export class CatalogService {
     }
 
     setChildes(parentId, level) {
-        this.catalogClient.get(parentId, level + 1).subscribe((catalogs) => {
+        const updateChildes$ =
+            level === -1 ? this.catalogClient.getMain() : this.catalogClient.get(parentId, level + 1);
+        updateChildes$.subscribe((catalogs) => {
             this.catalogsSubject[level + 1].next({ catalogs: catalogs, parentId: parentId });
             this.setEmptyHighestLevels(level);
         });
