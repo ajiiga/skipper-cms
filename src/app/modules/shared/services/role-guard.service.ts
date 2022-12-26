@@ -13,6 +13,7 @@ export class RoleGuardService {
         [NavigationService.homeUrlWithSlash, [Role.Admin, Role.Editor, Role.SuperAdmin, Role.Support]],
         [NavigationService.catalogWithSlash, [Role.Admin, Role.SuperAdmin, Role.Editor]],
         [NavigationService.usersWithSlash, [Role.SuperAdmin]],
+        [NavigationService.clientsWithSlash, [Role.SuperAdmin, Role.Admin, Role.Support]],
     ]);
 
     hasOpen(link: string) {
@@ -20,7 +21,7 @@ export class RoleGuardService {
         for (const role of userRoles) {
             const linkRoles = this.roleGuard.get(link);
 
-            if (linkRoles.includes(role)) {
+            if (linkRoles?.includes(role)) {
                 return true;
             }
         }

@@ -1,0 +1,38 @@
+.cards {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    h2 {
+        margin-bottom: 0;
+    }
+}
+
+.rating {
+    color: white;
+    padding: 2px 23px;
+    border-radius: 3px;
+    &.green {
+        background: #7fc936;
+    }
+    &.yellow {
+        background: #fedc2e;
+    }
+    &.red {
+        background: #ff5652;
+    }
+}
+
+:host ::ng-deep {
+    mat-label,
+    .input {
+        color: black;
+    }
+}

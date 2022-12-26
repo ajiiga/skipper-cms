@@ -7,6 +7,7 @@ import { AuthGuard } from './modules/shared/guards/auth.guard';
 import { LayoutComponent } from './modules/shared/components/layout/layout.component';
 import { CatalogModule } from './modules/catalog/catalog.module';
 import { UsersModule } from './modules/users/users.module';
+import { ClientsModule } from './modules/clients/clients.module';
 
 const routes: Routes = [
     {
@@ -29,6 +30,12 @@ const routes: Routes = [
     {
         path: NavigationService.usersUrl,
         loadChildren: () => import('./modules/users/users.module').then(({ UsersModule }) => UsersModule),
+        component: LayoutComponent,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: NavigationService.clientsUrl,
+        loadChildren: () => import('./modules/clients/clients.module').then(({ ClientsModule }) => ClientsModule),
         component: LayoutComponent,
         canActivate: [AuthGuard],
     },

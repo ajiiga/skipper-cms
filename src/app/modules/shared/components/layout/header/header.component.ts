@@ -29,6 +29,10 @@ export class HeaderComponent implements OnInit {
             name: 'Сотрудники',
             link: NavigationService.usersWithSlash,
         },
+        {
+            name: 'Пользователи',
+            link: NavigationService.clientsWithSlash,
+        },
     ];
 
     ngOnInit() {

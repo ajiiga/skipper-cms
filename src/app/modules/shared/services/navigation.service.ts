@@ -37,4 +37,9 @@ export class NavigationService {
     public static usersUrl = 'users';
     public static usersWithSlash = '/' + NavigationService.usersUrl;
     //#endregion
+
+    //#region clients
+    public static clientsUrl = 'clients';
+    public static clientsWithSlash = '/' + NavigationService.clientsUrl;
+    //#endregion
 }
