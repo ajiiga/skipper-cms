@@ -1,9 +1,10 @@
 export interface Client {
-    firstName: string;
-    secondName: string;
-    patronymic: string;
-    phone: string;
-    email: string;
-    time: string;
-    rating: number;
+    FirstName: string;
+    SecondName: string;
+    Patronymic: string;
+    Phone: string;
+    Email: string;
+    Time: string;
+    Rating: number;
+    CreatedAt: string;
 }

@@ -1,42 +1,48 @@
 <div class="cards" *ngIf="clients">
     <mat-card class="block" *ngFor="let client of clients">
         <div class="card-header">
-            <h2>{{ client.secondName }} {{ client.firstName }} {{ client.patronymic }}</h2>
+            <h2>{{ client.SecondName }} {{ client.FirstName }} {{ client.Patronymic }}</h2>
             <div
                 class="rating"
                 [ngClass]="{
-                    green: client.rating >= 4 && client.rating <= 5,
-                    yellow: client.rating < 4 && client.rating >= 3,
-                    red: client.rating < 3
+                    green: client.Rating >= 4 && client.Rating <= 5,
+                    yellow: client.Rating < 4 && client.Rating >= 3,
+                    red: client.Rating < 3
                 }"
             >
-                {{ client.rating }}
+                {{ client.Rating }}
             </div>
         </div>
         <h3>Данные пользователя:</h3>
         <mat-form-field appearance="outline">
             <mat-label>Телефон</mat-label>
-            <input class="input" disabled [value]="client.phone || 'Нет данных'" matInput placeholder="Placeholder" />
+            <input class="input" disabled [value]="client.Phone || 'Нет данных'" matInput placeholder="Placeholder" />
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Эл.почта</mat-label>
-            <input class="input" disabled [value]="client.email || 'Нет данных'" matInput placeholder="Placeholder" />
+            <input class="input" disabled [value]="client.Email || 'Нет данных'" matInput placeholder="Placeholder" />
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Дата создания</mat-label>
-            <input class="input" disabled [value]="client.phone || 'Нет данных'" matInput placeholder="Placeholder" />
+            <input
+                class="input"
+                disabled
+                [value]="(client.CreatedAt | date: 'dd.MM.YYYY') || 'Нет данных'"
+                matInput
+                placeholder="Placeholder"
+            />
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Часовой пояс</mat-label>
-            <input class="input" disabled [value]="client.phone || 'Нет данных'" matInput placeholder="Placeholder" />
+            <input class="input" disabled [value]="client.Time || 'Нет данных'" matInput placeholder="Placeholder" />
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Количество занятий</mat-label>
-            <input class="input" disabled [value]="client.phone || 'Нет данных'" matInput placeholder="Placeholder" />
+            <input class="input" disabled [value]="'Нет данных'" matInput placeholder="Placeholder" />
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Занятий пропущено</mat-label>
-            <input class="input" disabled [value]="client.phone || 'Нет данных'" matInput placeholder="Placeholder" />
+            <input class="input" disabled [value]="'Нет данных'" matInput placeholder="Placeholder" />
         </mat-form-field>
     </mat-card>
 </div>
