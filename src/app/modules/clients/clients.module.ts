@@ -8,6 +8,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
     declarations: [ClientsComponent],
@@ -20,6 +22,8 @@ import { MatIconModule } from '@angular/material/icon';
         MatFormFieldModule,
         MatInputModule,
         MatIconModule,
+        ReactiveFormsModule,
+        MatPaginatorModule,
     ],
 })
 export class ClientsModule {}

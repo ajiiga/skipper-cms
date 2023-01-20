@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Client } from './dto';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ClientsService {
     constructor(private readonly httpClient: HttpClient) {}
-    get(): Observable<Client[]> {
-        return this.httpClient.get<Client[]>('/clients/');
+    get(search: string): Observable<Client[]> {
+        return this.httpClient.get<Client[]>(`/clients/?search=${search}`);
     }
 }

@@ -1,3 +1,9 @@
+.wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
 .cards {
     margin-top: 20px;
     display: grid;
@@ -35,4 +41,10 @@
     .input {
         color: black;
     }
+}
+
+.button-container {
+    width: 100px;
+    margin-left: auto;
+    margin-top: -22px;
 }
