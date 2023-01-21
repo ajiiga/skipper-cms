@@ -15,7 +15,7 @@
                 class="rating"
                 [ngClass]="{
                     green: client.Rating >= 4 && client.Rating <= 5,
-                    yellow: client.Rating < 4 && client.Rating >= 3,
+                    yellow: (client.Rating < 4 && client.Rating >= 3) || client.Rating === 0,
                     red: client.Rating < 3
                 }"
             >
