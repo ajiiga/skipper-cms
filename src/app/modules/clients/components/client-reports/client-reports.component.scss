@@ -1,0 +1,15 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.textarea {
+    color: black;
+    max-height: 100px;
+}

@@ -10,9 +10,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ClientReportsComponent } from './components/client-reports/client-reports.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
-    declarations: [ClientsComponent],
+    declarations: [ClientsComponent, ClientReportsComponent],
     imports: [
         CommonModule,
         ClientsRoutingModule,
@@ -24,6 +26,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
         MatIconModule,
         ReactiveFormsModule,
         MatPaginatorModule,
+        MatDialogModule,
     ],
 })
 export class ClientsModule {}

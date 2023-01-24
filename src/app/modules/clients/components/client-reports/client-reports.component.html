@@ -1,0 +1,10 @@
+<div class="container">
+    <mat-card *ngFor="let report of data.reports">
+        <h4 class="title">{{ report.ReportTheme }}</h4>
+        <mat-form-field appearance="outline">
+            <textarea class="textarea" disabled matInput cdkTextareaAutosize [cdkAutosizeMaxRows]="10">{{
+                report.ReportText
+            }}</textarea>
+        </mat-form-field>
+    </mat-card>
+</div>

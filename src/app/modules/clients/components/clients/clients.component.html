@@ -53,6 +53,15 @@
             <mat-label>Занятий пропущено</mat-label>
             <input class="input" disabled [value]="'Нет данных'" matInput placeholder="Placeholder" />
         </mat-form-field>
+        <button
+            [disabled]="client.Reports.length === 0"
+            mat-button
+            mat-raised-button
+            color="primary"
+            (click)="openReports(client)"
+        >
+            Жалобы
+        </button>
     </mat-card>
 </div>
 <!--<mat-paginator-->

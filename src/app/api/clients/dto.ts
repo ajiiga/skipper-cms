@@ -5,6 +5,12 @@ export interface Client {
     Phone: string;
     Email: string;
     Time: string;
+    Reports: Report[];
     Rating: number;
     CreatedAt: string;
+}
+
+export interface Report {
+    ReportText: string;
+    ReportTheme: string;
 }
