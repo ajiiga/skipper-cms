@@ -13,6 +13,8 @@ import { ClientReportsComponent } from '../client-reports/client-reports.compone
 })
 export class ClientsComponent implements OnInit {
     clients: Client[];
+    page: number = 1;
+    countClients: number = 0;
     searchControl = new FormControl<string>('');
     constructor(private readonly clientsService: ClientsService, private dialog: MatDialog) {}
 
@@ -21,13 +23,15 @@ export class ClientsComponent implements OnInit {
     }
 
     search(): void {
-        this.clientsService.get(this.searchControl.value).subscribe((clients) => {
-            this.clients = clients;
+        this.clientsService.search(this.searchControl.value, this.page).subscribe((result) => {
+            this.clients = result.clients;
+            this.countClients = result.clients_count;
         });
     }
 
     handlePageEvent(event: PageEvent) {
-        console.log(event);
+        this.page = event.pageIndex + 1;
+        this.search();
     }
 
     openReports(client: Client): void {

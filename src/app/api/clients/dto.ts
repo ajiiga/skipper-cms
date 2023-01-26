@@ -1,3 +1,9 @@
+export interface ClientRegistry {
+    clients: Client[];
+    clients_count: number;
+    clients_count_search: number;
+}
+
 export interface Client {
     FirstName: string;
     SecondName: string;
@@ -8,9 +14,15 @@ export interface Client {
     Reports: Report[];
     Rating: number;
     CreatedAt: string;
+    Statistic: Statistic;
 }
 
 export interface Report {
     ReportText: string;
     ReportTheme: string;
+}
+
+export interface Statistic {
+    lessons_count: number;
+    uncomplited_lessons: number;
 }

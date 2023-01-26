@@ -8,6 +8,8 @@ import { LayoutComponent } from './modules/shared/components/layout/layout.compo
 import { CatalogModule } from './modules/catalog/catalog.module';
 import { UsersModule } from './modules/users/users.module';
 import { ClientsModule } from './modules/clients/clients.module';
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { getPaginatorIntl } from './modules/shared/paginator-intl';
 
 const routes: Routes = [
     {
@@ -45,5 +47,6 @@ const routes: Routes = [
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule],
+    providers: [{ provide: MatPaginatorIntl, useValue: getPaginatorIntl() }],
 })
 export class AppRoutingModule {}

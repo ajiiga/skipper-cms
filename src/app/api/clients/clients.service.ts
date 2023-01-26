@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Client } from './dto';
+import { ClientRegistry } from './dto';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ClientsService {
     constructor(private readonly httpClient: HttpClient) {}
-    get(search: string): Observable<Client[]> {
-        return this.httpClient.get<Client[]>(`/clients/?search=${search}`);
+    search(search: string, page: number): Observable<ClientRegistry> {
+        return this.httpClient.get<ClientRegistry>(`/clients/?search=${search}&page=${page}&limit=10`);
     }
 }
