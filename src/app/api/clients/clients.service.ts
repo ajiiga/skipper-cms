@@ -9,6 +9,6 @@ import { HttpClient } from '@angular/common/http';
 export class ClientsService {
     constructor(private readonly httpClient: HttpClient) {}
     search(search: string, page: number): Observable<ClientRegistry> {
-        return this.httpClient.get<ClientRegistry>(`/clients/?search=${search}&page=${page}&limit=10`);
+        return this.httpClient.get<ClientRegistry>(`/clients/?search=${search}&page=${page}&limit=12`);
     }
 }
