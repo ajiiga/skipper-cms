@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Client } from '../../../../api/clients/dto';
 import { ClientsService } from '../../../../api/clients/clients.service';
 import { FormControl } from '@angular/forms';
@@ -36,5 +36,13 @@ export class ClientsComponent implements OnInit {
 
     openReports(client: Client): void {
         this.dialog.open(ClientReportsComponent, { width: '1200px', data: { reports: client.Reports } });
+    }
+
+    @HostListener('window:keyup.enter', ['$event', 'undefined'])
+    @HostListener('window:click', ['undefined', '$event'])
+    onEnterOrClick(enterEvent, mouseEvent) {
+        if (enterEvent) {
+            this.search();
+        }
     }
 }
